@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TouristWeb0.Competition>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Змагання</h1>
+
+<p>
+    <a asp-action="Create">Створити нове</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdComplexityNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTypeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdComplexityNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTypeNavigation.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompetitionId">Редагувати</a> |
+                <a asp-action="Obstacles" asp-route-id="@item.CompetitionId">Етапи</a>|
+                @if (item.StartTime > ViewBag.Date0) { 
+                    <a asp-action="Applications" asp-route-id="@item.CompetitionId">Заявки</a>
+                }
+                @if (item.StartTime <= ViewBag.Date0 ) 
+                { 
+                     <a asp-action="Results" asp-route-id="@item.CompetitionId">Результати</a>
+                }|
+   
+               <a asp-action="Delete" asp-route-id="@item.CompetitionId">Видалити</a>
+   
+               </td>
+   
+           </tr>
+}
+    </tbody>
+</table>

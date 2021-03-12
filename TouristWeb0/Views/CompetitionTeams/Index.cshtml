@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TouristWeb0.CompetitionTeam>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Заявки</h1>
+
+<p>
+   @* <a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Penalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penalty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admitted.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competition.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompetitionTeamId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.CompetitionTeamId">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompetitionTeamId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

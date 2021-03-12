@@ -1,0 +1,30 @@
+﻿@model TouristWeb0.ObstacleCompetition
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h4>Етап</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Competition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Competition.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obstacle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obstacle.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ObstacleCompetitionId">Редагувати</a> |
+    <a asp-action="Index">До Етапів</a>
+</div>

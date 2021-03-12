@@ -1,0 +1,110 @@
+﻿@model IEnumerable<TouristWeb0.Obstacle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (ViewBag.CompId0 != null)
+    {
+        <a asp-action="Create" asp-route-id="@ViewBag.CompId0">Створити етап</a>
+    }
+    @if (ViewBag.CompId0 == null)
+    {
+        <a asp-action="Create">Створити Етап</a>
+    }
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentObstacle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipmentTarget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovementFirst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConditionsOvercoming)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ConditionalComplexity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObstacleEvaluation)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdditionalDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentObstacle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentTarget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovementFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConditionsOvercoming)
+            </td>@*
+            <td>
+                @Html.DisplayFor(modelItem => item.ConditionalComplexity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObstacleEvaluation)
+            </td>*@
+        <td>
+            <a asp-action="Edit"  asp-route-id="@item.ObstacleId">Редагувати</a> |
+            @if (ViewBag.CompId0 != null)
+            {
+                <a asp-action="Add" asp-route-id="@ViewBag.CompId0"asp-route-id1="@item.ObstacleId">Додати</a>
+            }
+            @if (ViewBag.CompId0 == null)
+            {
+                <a asp-action="Details" asp-route-id="@item.ObstacleId">Детально</a>
+            }|
+            <a asp-action="Delete" asp-route-id="@item.ObstacleId">Видалити</a>
+        </td>
+        </tr>
+}
+    </tbody>
+</table>

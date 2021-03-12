@@ -1,0 +1,94 @@
+﻿@model TouristWeb0.Obstacle
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{ 
+    string X = "Create";
+    if (ViewBag.CompId0 != null)
+    {
+        X = "Create0";
+    }
+
+}
+<h1>Create</h1>
+
+<h4>Obstacle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="@X">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalDescription" class="control-label"></label>
+                <input asp-for="AdditionalDescription" class="form-control" />
+                <span asp-validation-for="AdditionalDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentStart" class="control-label"></label>
+                <input asp-for="EquipmentStart" class="form-control" />
+                <span asp-validation-for="EquipmentStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentObstacle" class="control-label"></label>
+                <input asp-for="EquipmentObstacle" class="form-control" />
+                <span asp-validation-for="EquipmentObstacle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipmentTarget" class="control-label"></label>
+                <input asp-for="EquipmentTarget" class="form-control" />
+                <span asp-validation-for="EquipmentTarget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovementFirst" class="control-label"></label>
+                <input asp-for="MovementFirst" class="form-control" />
+                <span asp-validation-for="MovementFirst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConditionsOvercoming" class="control-label"></label>
+                <input asp-for="ConditionsOvercoming" class="form-control" />
+                <span asp-validation-for="ConditionsOvercoming" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConditionalComplexity" class="control-label"></label>
+                <input asp-for="ConditionalComplexity" class="form-control" />
+                <span asp-validation-for="ConditionalComplexity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ObstacleEvaluation" class="control-label"></label>
+                <input asp-for="ObstacleEvaluation" class="form-control" />
+                <span asp-validation-for="ObstacleEvaluation" class="text-danger"></span>
+            </div>
+            
+                <div class="form-group">
+                    <input class="text" hidden="hidden" ,id="CompId0" name="CompId0" value="@ViewBag.CompId0" />
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

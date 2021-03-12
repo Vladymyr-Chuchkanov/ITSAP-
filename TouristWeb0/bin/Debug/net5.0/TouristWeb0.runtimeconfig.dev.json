@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\vovax\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vovax\\.nuget\\packages"
+    ]
+  }
+}

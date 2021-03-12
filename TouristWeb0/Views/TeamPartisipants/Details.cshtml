@@ -1,0 +1,36 @@
+﻿@model TouristWeb0.TeamPartisipant
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TeamPartisipant</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Participated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Participated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Partisipant)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Partisipant.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Team)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Team.Comment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TeamPartisipantId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

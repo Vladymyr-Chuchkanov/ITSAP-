@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TouristWeb0.ObstacleCompetition>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewBag.NameCompetition</h1>
+
+<p>
+    <a asp-action="Add"asp-route-id="@ViewBag.CompId0">Додати Етап</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Competition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obstacle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competition.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obstacle.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ObstacleCompetitionId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.ObstacleCompetitionId">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.ObstacleCompetitionId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
